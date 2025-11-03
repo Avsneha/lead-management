@@ -86,6 +86,7 @@ The Lead Management System is a web application built with Laravel to help busin
 * Mysql
 * Composer
 * Mailtrap account for email testing
+* PhpSpreadsheet (composer require phpoffice/phpspreadsheet)
 
 ## INSTALLATION AND SETUP
 
