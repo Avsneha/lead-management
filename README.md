@@ -166,4 +166,45 @@ Emails are sent on lead updates
 | `leads.export`      | `/leads/export`       | GET    | `LeadController@export`           | Export leads to Excel          |
 
 
+## TESTCASE SENARIO
+______________________________________________________________________________________________________________________________
 
+## Authentication & Authorization
+
+| Senario                       |     Steps                                        |  Expected Result                            |
+| -----------------------------   -----------------------------------------------   --------------------------------------------
+| Login with valid credentials  |  Enter correct email and password → click login  | User successfully logs in and is redirected |
+|                                                                                    to the dashboard                            |
+| Login with invalid credentials| Enter wrong email or password → click login      | Display error: “Invalid credentials”        |
+| Logout                        | Click logout link                                | User is logged out and redirected to login  |
+|                                                                                    page                                        |
+| Access leads/dashboard without| Open /leads or /dashboard directly               | Redirected to login page                    |
+| login                         |                                                  |                                             |
+| Register new user             |Fill registration form with valid details → submit| User is created and redirected to login     |
+|--------------------------------------------------------------------------------------------------------------------------------|
+
+## Lead CRUD Options
+
+|Senario                         | Steps                                            | Result                                     |
+|--------------------------------  -------------------------------------------------  -------------------------------------------
+| Add new lead                   |Navigate to /leads/create, fill all fields → submit|Lead saved and visible in listing          |
+|Add lead with duplicate email   |Enter an email already in database                 | Error                                     |
+|Edit lead                       |Navigate to /leads/{id}/edit, update details→submit| Lead updated successfully                 |
+|Delete lead                     | Click delete on a lead row → confirm              | Lead removed from listing                 |
+|View lead history               |Click on lead → history page                       | Display all lead change status history    |
+|--------------------------------------------------------------------------------------------------------------------------------|
+
+
+## Lead Import : Excel
+| Senario                        | Steps                                             | Result                                    |
+|-------------------------------- --------------------------------------------------- -------------------------------------------
+|Import valid Excel file         | Upload .xlsx with valid columns → submit          |All valid leads imported successfully      |
+|Import file with duplicate emails|Excel contains existing emails                    |Duplicate rows skipped, success message for 
+|                                                                                     valid rows                                 |
+|Import invalid file type         | Upload with wrong extension                      | Should not be uploaded                   |
+|--------------------------------------------------------------------------------------------------------------------------------
+
+## Lead Export (Excel)
+
+1. Export all leads	-> Click export button	-> Excel file downloaded containing all leads
+2. Export when no leads	-> Empty database → click export	-> Excel file generated with only headers
