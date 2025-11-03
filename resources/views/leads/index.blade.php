@@ -3,10 +3,10 @@
 @section('content')
 <div class="container mt-4">
     <h2>Leads</h2>
-     @if(auth()->user()->isAdmin())
+    
     <a href="{{ route('leads.create') }}" class="btn btn-primary mb-2">Add Lead</a>
     <a href="{{ route('leads.import.form') }}" class="btn btn-success mb-2">Import Leads</a>
-     @endif
+   
     <a href="{{ route('leads.export') }}" class="btn btn-warning mb-2">Export Leads</a>
 
     @if(session('success')) <div class="alert alert-success">{{ session('success') }}</div> @endif
